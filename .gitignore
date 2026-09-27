@@ -1,2 +1,6 @@
 .playwright-cli/
 *.log
+jsqr-1.4.0.tgz
+dist/vendor/package/
+.openai/
+liverary-site.tar
