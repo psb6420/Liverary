@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="강원대학교 도서관 자유석 QR 체크인 이후의 집중 기록 모바일 흐름 시안"
+    />
+    <title>Liverary · QR 이후 모바일 흐름</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235650dc'/%3E%3Cpath d='M9 7v18h15v-5H14V7' fill='white'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="device-stage">
+      <section id="phone" class="phone" data-state="scanning" aria-label="Liverary 모바일 화면">
+        <header class="app-header">
+          <div class="brand" aria-label="Liverary">
+            <span class="brand-mark">L</span>
+            <strong>Liverary</strong>
+          </div>
+          <span class="library-chip">미래도서관</span>
+        </header>
+
+        <section id="screen" class="screen" tabindex="-1"></section>
+        <footer id="action-dock" class="action-dock"></footer>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
