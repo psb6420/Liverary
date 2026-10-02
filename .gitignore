@@ -1,9 +1,6 @@
 .playwright-cli/
-node_modules/
-dist/
-output/
 *.log
+jsqr-1.4.0.tgz
+dist/vendor/package/
 .openai/
-.env
-.env.*
-!.env.example
+liverary-site.tar

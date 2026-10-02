@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <title>Liverary</title>
-  <rect x="2" y="2" width="60" height="60" rx="18" fill="#5650dc"/>
-  <path d="M32 21c-4.6-3.5-10.7-4.7-17-3v27c6.4-1.6 12.5-.5 17 3 4.5-3.5 10.6-4.6 17-3V18c-6.3-1.7-12.4-.5-17 3Z" stroke="#fff" stroke-width="2.8" stroke-linejoin="round"/>
-  <path d="M32 21v27M22 24v14h6" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 27h6M38 33h6M38 39h5" stroke="#d3d0ff" stroke-width="2" stroke-linecap="round"/>
-</svg>
