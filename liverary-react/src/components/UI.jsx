@@ -54,39 +54,50 @@ export function Sheet({ title, onClose, children }) {
       if (previous?.isConnected) previous.focus();
     };
   }, []);
-  function handleKey(event) {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      onClose();
+  useEffect(() => {
+    function handleKey(event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
+      if (event.key !== "Tab") return;
+      const items = [
+        ...sheetRef.current.querySelectorAll(
+          "button:not(:disabled), input, select, a[href]",
+        ),
+      ].filter(
+        (node) =>
+          !node.hidden && node.tabIndex >= 0 && node.getClientRects().length,
+      );
+      if (!items.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = items[0];
+      const last = items.at(-1);
+      const outside = !sheetRef.current.contains(document.activeElement);
+      if (
+        event.shiftKey &&
+        (document.activeElement === first ||
+          document.activeElement === sheetRef.current ||
+          outside)
+      ) {
+        event.preventDefault();
+        last.focus();
+      } else if (
+        !event.shiftKey &&
+        (document.activeElement === last ||
+          document.activeElement === sheetRef.current ||
+          outside)
+      ) {
+        event.preventDefault();
+        first.focus();
+      }
     }
-    if (event.key !== "Tab") return;
-    const items = [
-      ...sheetRef.current.querySelectorAll(
-        "button:not(:disabled), input, select, a[href]",
-      ),
-    ];
-    if (!items.length) {
-      event.preventDefault();
-      return;
-    }
-    const first = items[0];
-    const last = items.at(-1);
-    if (
-      event.shiftKey &&
-      (document.activeElement === first ||
-        document.activeElement === sheetRef.current)
-    ) {
-      event.preventDefault();
-      last.focus();
-    } else if (
-      !event.shiftKey &&
-      (document.activeElement === last ||
-        document.activeElement === sheetRef.current)
-    ) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
+    // Downloads and clipboard actions may move focus out of the dialog.
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [onClose]);
   return (
     <div className="sheet-overlay">
       <button
@@ -102,7 +113,6 @@ export function Sheet({ title, onClose, children }) {
         aria-modal="true"
         aria-labelledby={labelId}
         tabIndex={-1}
-        onKeyDown={handleKey}
       >
         <span className="sheet-grab" aria-hidden="true" />
         <div className="sheet-header">

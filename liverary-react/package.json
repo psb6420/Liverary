@@ -8,10 +8,11 @@
     "dev:lan": "vite --host 0.0.0.0 --port 5173 --strictPort",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4175 --strictPort",
-    "test": "node --test src/lib/model.test.js"
+    "test": "node --test src/lib/model.test.js src/lib/qr.test.js"
   },
   "dependencies": {
     "html-to-image": "1.11.13",
+    "jsqr": "1.4.0",
     "qrcode": "1.5.4",
     "react": "19.3.0",
     "react-dom": "19.3.0"

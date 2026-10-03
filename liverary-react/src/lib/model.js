@@ -1,9 +1,14 @@
+import { RETIRED_PC_SEATS, WE_PLACE_SEATS } from "./wePlace.js";
+
 export const STORAGE_KEY = "liverary-react-state-v1";
 export const STATE_VERSION = 1;
 export const DAY_MS = 24 * 60 * 60 * 1000;
 const KOREA_OFFSET_MS = 9 * 60 * 60 * 1000;
 
-export const BASE_SEATS = [
+export const BASE_SEATS = WE_PLACE_SEATS;
+
+// Kept only to display and finish records saved by the earlier 24-seat mockup.
+export const LEGACY_SEATS = [
   {
     id: "1F-A01",
     floor: "1F",
@@ -235,8 +240,14 @@ export const COMMUNITY_ITEMS = [
 ];
 
 const SEAT_IDS = new Set(BASE_SEATS.map((seat) => seat.id));
+const SEAT_DEFINITIONS = new Map(
+  [...LEGACY_SEATS, ...RETIRED_PC_SEATS, ...BASE_SEATS].map((seat) => [
+    seat.id,
+    seat,
+  ]),
+);
 const SEAT_STATUSES = new Set(["free", "occupied", "unknown", "away", "mine"]);
-const FILTERS = new Set(["all", "quiet", "power", "window"]);
+const FILTERS = new Set(["all", "quiet", "power", "window", "lounge", "table"]);
 const COMMUNITY_TABS = new Set(["all", "event", "spot", "study"]);
 const finiteNumber = (value) =>
   typeof value === "number" && Number.isFinite(value);
@@ -249,7 +260,7 @@ export function createInitialState() {
   return {
     version: STATE_VERSION,
     seats: Object.fromEntries(BASE_SEATS.map((seat) => [seat.id, seat.status])),
-    floor: "2F",
+    floor: "1F",
     filter: "all",
     communityTab: "all",
     session: null,
@@ -301,7 +312,7 @@ function normalizeProfile(value) {
 function normalizeRecord(record, now) {
   if (
     !record ||
-    !SEAT_IDS.has(record.seatId) ||
+    !SEAT_DEFINITIONS.has(record.seatId) ||
     !finiteNumber(record.startedAt) ||
     !finiteNumber(record.endedAt)
   )
@@ -340,7 +351,7 @@ export function normalizeState(value, now = Date.now()) {
     if (SEAT_STATUSES.has(saved) && saved !== "mine")
       state.seats[seat.id] = saved;
   }
-  state.floor = value.floor === "1F" ? "1F" : "2F";
+  state.floor = "1F";
   state.filter = FILTERS.has(value.filter) ? value.filter : "all";
   state.communityTab = COMMUNITY_TABS.has(value.communityTab)
     ? value.communityTab
@@ -359,7 +370,7 @@ export function normalizeState(value, now = Date.now()) {
   const session = value.session;
   if (
     session &&
-    SEAT_IDS.has(session.seatId) &&
+    SEAT_DEFINITIONS.has(session.seatId) &&
     finiteNumber(session.startedAt) &&
     session.startedAt >= 0 &&
     session.startedAt <= now
@@ -429,8 +440,12 @@ export function selectSeats(state, floor = null) {
 }
 
 export function selectSeat(state, id) {
-  const seat = BASE_SEATS.find((item) => item.id === id);
+  const seat = getSeatDefinition(id);
   return seat ? { ...seat, status: state.seats[id] || seat.status } : null;
+}
+
+export function getSeatDefinition(id) {
+  return SEAT_DEFINITIONS.get(id) || null;
 }
 
 export function computeFloorStats(state, floor) {
@@ -548,7 +563,7 @@ export function transitionState(state, action, payload, now = Date.now()) {
       return state.session.seatId === payload
         ? { state, ok: true, session: state.session }
         : reject(state, "이용 중인 좌석을 먼저 종료해 주세요.");
-    if (!seat || seat.status !== "free")
+    if (!SEAT_IDS.has(payload) || !seat || seat.status !== "free")
       return reject(state, "현재 이용할 수 없는 좌석이에요.");
     const session = {
       id: `session-${now}-${state.records.length}`,
@@ -644,7 +659,7 @@ export function transitionState(state, action, payload, now = Date.now()) {
   }
   if (action === "logout")
     return { state: { ...state, profile: null }, ok: true };
-  if (action === "setFloor" && ["1F", "2F"].includes(payload))
+  if (action === "setFloor" && payload === "1F")
     return { state: { ...state, floor: payload }, ok: true };
   if (action === "setFilter" && FILTERS.has(payload))
     return { state: { ...state, filter: payload }, ok: true };

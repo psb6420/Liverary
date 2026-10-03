@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">미래도서관 1층 ④ We플레이스 목업 좌석배치도</title>
+  <desc id="desc">사용자가 교정한 배치와 VR 사진을 참고한 도식. 작은 테이블 네 개, 브라우징 밸리 앞의 큰 흰 테이블 하나, 창가 바와 소파를 나타낸다. PC 예약석을 제외한 42개 이용 지점을 표시한다. 공식 번호, 실제 총 좌석 수, 실측 도면이 아니다.</desc>
+  <metadata>2026-10-04. Photo-based free-seat prototype: small tables 16, large shared table 6 provisional points, window bar 6, sculptural sofas 8, visible individual armchair pairs 6. PC reservation seats excluded; original remaining IDs preserved. Not connected to KNU reservations.</metadata>
+  <defs>
+    <pattern id="tiles" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M90 0H0V90" fill="none" stroke="#eef0f4" stroke-width="1.5"/></pattern>
+    <style>
+      text { font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif; fill: #9198a9; font-size: 26px; text-anchor: middle; }
+      .zone { fill: #646a7c; font-size: 30px; font-weight: 700; }
+      .blue-label { fill: #427f93; }
+      .seat-number { fill: #5650dc; font-size: 28px; font-weight: 700; }
+    </style>
+    <g id="common-table" stroke="#cbd3df" stroke-width="2">
+      <rect x="-52" y="-52" width="104" height="104" rx="6" fill="#fff"/>
+      <rect x="-28" y="-116" width="56" height="52" rx="10" fill="#e3e8f0"/>
+      <rect x="-28" y="64" width="56" height="52" rx="10" fill="#e3e8f0"/>
+      <rect x="-116" y="-28" width="52" height="56" rx="10" fill="#e3e8f0"/>
+      <rect x="64" y="-28" width="52" height="56" rx="10" fill="#e3e8f0"/>
+    </g>
+    <g id="armchair-pair" fill="#e3e8f0" stroke="#c5cfdd" stroke-width="2">
+      <path d="M-106 -38V37H-26V-38H-40V23H-92V-38Z"/>
+      <rect x="-92" y="-25" width="52" height="48" rx="6"/>
+      <path d="M106 -38V37H26V-38H40V23H92V-38Z"/>
+      <rect x="40" y="-25" width="52" height="48" rx="6"/>
+      <circle r="23" fill="#fff"/>
+    </g>
+    <g id="blue-sofa">
+      <ellipse rx="153" ry="146" fill="#eee6d7" stroke="#dfd4c1" stroke-width="2"/>
+      <path d="M-24 -48C-81 -67 -99 -134 -32 -139C25 -145 78 -123 57 -80L31 -44C76 -69 126 -47 134 -2C150 62 83 92 52 44L31 17C44 75 26 140 -28 134C-91 132 -105 86 -62 49L-32 23C-91 48 -145 15 -137 -40C-124 -101 -82 -84 -24 -48Z" fill="#62bbcc" stroke="#398a9f" stroke-width="3"/>
+      <path d="M-24 -48C-81 -67 -99 -134 -32 -139C25 -145 78 -123 57 -80L31 -44L3 -4Z" fill="#77bbd8"/>
+      <path d="M31 -44C76 -69 126 -47 134 -2C150 62 83 92 52 44L31 17L3 -4Z" fill="#439eae"/>
+      <path d="M31 17C44 75 26 140 -28 134C-91 132 -105 86 -62 49L-32 23L3 -4Z" fill="#579fc7"/>
+      <path d="M-32 23C-91 48 -145 15 -137 -40C-124 -101 -82 -84 -24 -48L3 -4Z" fill="#58b7c7"/>
+      <path d="M-27 -82Q-26 -33 3 -4Q37 -16 88 -24M3 -4Q-1 40 -24 91M3 -4Q-52 -4 -94 -32" fill="none" stroke="#33758e" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </defs>
+  <rect width="1200" height="1500" fill="#fff"/>
+  <path d="M40 80H1160V740Q1190 1340 870 1450H40Z" fill="url(#tiles)"/>
+  <g id="browsing-valley-context">
+    <path d="M290 20H1160V85H290Z" fill="#f2ede3" stroke="#e1d9cb" stroke-width="2"/>
+    <path d="M310 42H1140M310 65H1140" fill="none" stroke="#e3dbcd" stroke-width="2"/>
+    <text class="zone" x="725" y="61">③ 브라우징 밸리</text>
+  </g>
+  <g id="carpet-area">
+    <path d="M55 100H890V850L770 915H55Z" fill="#edf1f8" stroke="#dce2ee" stroke-width="2"/>
+    <path d="M55 110V895" fill="none" stroke="#c4ccd9" stroke-width="6"/>
+  </g>
+  <g id="large-table" data-seat-group="large-table">
+    <path d="M410 102H860V340H410V310H829V132H441V310H410Z" fill="#d4dfed" stroke="#bccbdc" stroke-width="3"/>
+    <rect x="455" y="161" width="359" height="101" rx="6" fill="#fff" stroke="#cbd3df" stroke-width="2"/>
+    <text x="645" y="227">큰 흰 테이블</text>
+  </g>
+  <g id="small-tables">
+    <g data-seat-group="small-table-1"><use href="#common-table" x="405" y="490"/><text x="405" y="499" style="font-size:21px">테이블 1</text></g>
+    <g data-seat-group="small-table-2"><use href="#common-table" x="710" y="490"/><text x="710" y="499" style="font-size:21px">테이블 2</text></g>
+    <g data-seat-group="small-table-3"><use href="#common-table" x="405" y="750"/><text x="405" y="759" style="font-size:21px">테이블 3</text></g>
+    <g data-seat-group="small-table-4"><use href="#common-table" x="710" y="750"/><text x="710" y="759" style="font-size:21px">테이블 4</text></g>
+  </g>
+  <g id="exterior-window" fill="none" stroke="#bac9d9" stroke-width="4">
+    <path d="M1160 90V740Q1190 1340 870 1450H40"/>
+    <path d="M1148 90V740Q1178 1328 870 1438H40" stroke="#d0dde8"/>
+    <path d="M1148 180H1160M1148 290H1160M1148 400H1160M1148 510H1160M1148 620H1160M1148 730H1160M1150 842L1162 844M1144 955L1156 958M1121 1063L1133 1067M1094 1174L1106 1178M1044 1270L1055 1277M977 1355L986 1364M902 1416L909 1426M800 1438V1450M690 1438V1450M580 1438V1450M470 1438V1450M360 1438V1450M250 1438V1450M140 1438V1450"/>
+  </g>
+  <g id="window-bar">
+    <path d="M1129 814Q1160 1092 984 1259" fill="none" stroke="#ddd6cb" stroke-width="35"/>
+    <path d="M1129 814Q1160 1092 984 1259" fill="none" stroke="#eee9df" stroke-width="28"/>
+    <text x="1119" y="654" transform="rotate(90 1119 654)">창가</text>
+  </g>
+  <g id="columns" fill="#e5e9ef" stroke="#cfd6e1" stroke-width="3">
+    <circle cx="1128" cy="741" r="31"/>
+    <circle cx="800" cy="1265" r="31"/>
+    <circle cx="500" cy="960" r="30"/>
+    <circle cx="112" cy="1110" r="30"/>
+  </g>
+  <g id="sofa-1" data-seat-group="sofa-1">
+    <use href="#blue-sofa" x="880" y="1030"/>
+    <text class="blue-label" x="867" y="855">파란 소파 1</text>
+  </g>
+  <g id="sofa-2" data-seat-group="sofa-2">
+    <use href="#blue-sofa" x="300" y="1235" transform="rotate(-12 300 1235)"/>
+    <text class="blue-label" x="283" y="1059">파란 소파 2</text>
+  </g>
+  <g id="individual-armchairs">
+    <g data-seat-group="armchair-1"><use href="#armchair-pair" x="1040" y="220" transform="rotate(90 1040 220)"/></g>
+    <g data-seat-group="armchair-2"><use href="#armchair-pair" x="1040" y="440" transform="rotate(90 1040 440)"/></g>
+    <g data-seat-group="armchair-3"><use href="#armchair-pair" x="1040" y="660" transform="rotate(90 1040 660)"/></g>
+  </g>
+  <text x="308" y="992">로비 · 통로</text>
+  <path d="M215 1027H303M215 1027L228 1016M215 1027L228 1038" fill="none" stroke="#bac1cd" stroke-width="3" stroke-linecap="round"/>
+  <g id="static-seat-markers">
+    <g data-seat-id="1F-W01" transform="translate(1080 830)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">01</text></g>
+    <g data-seat-id="1F-W02" transform="translate(1088 910)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">02</text></g>
+    <g data-seat-id="1F-W03" transform="translate(1070 990)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">03</text></g>
+    <g data-seat-id="1F-W04" transform="translate(1070 1080)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">04</text></g>
+    <g data-seat-id="1F-W05" transform="translate(987 1130)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">05</text></g>
+    <g data-seat-id="1F-W06" transform="translate(940 1220)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">06</text></g>
+    <g data-seat-id="1F-W07" transform="translate(880 935)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">07</text></g>
+    <g data-seat-id="1F-W08" transform="translate(990 1030)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">08</text></g>
+    <g data-seat-id="1F-W09" transform="translate(880 1125)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">09</text></g>
+    <g data-seat-id="1F-W10" transform="translate(770 1030)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">10</text></g>
+    <g data-seat-id="1F-W11" transform="translate(300 1145)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">11</text></g>
+    <g data-seat-id="1F-W12" transform="translate(405 1235)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">12</text></g>
+    <g data-seat-id="1F-W13" transform="translate(300 1325)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">13</text></g>
+    <g data-seat-id="1F-W14" transform="translate(195 1235)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">14</text></g>
+    <g data-seat-id="1F-W24" transform="translate(405 400)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">24</text></g>
+    <g data-seat-id="1F-W25" transform="translate(495 490)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">25</text></g>
+    <g data-seat-id="1F-W26" transform="translate(405 580)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">26</text></g>
+    <g data-seat-id="1F-W27" transform="translate(315 490)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">27</text></g>
+    <g data-seat-id="1F-W28" transform="translate(710 400)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">28</text></g>
+    <g data-seat-id="1F-W29" transform="translate(800 490)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">29</text></g>
+    <g data-seat-id="1F-W30" transform="translate(710 580)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">30</text></g>
+    <g data-seat-id="1F-W31" transform="translate(620 490)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">31</text></g>
+    <g data-seat-id="1F-W32" transform="translate(405 660)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">32</text></g>
+    <g data-seat-id="1F-W33" transform="translate(495 750)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">33</text></g>
+    <g data-seat-id="1F-W34" transform="translate(405 840)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">34</text></g>
+    <g data-seat-id="1F-W35" transform="translate(315 750)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">35</text></g>
+    <g data-seat-id="1F-W36" transform="translate(710 660)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">36</text></g>
+    <g data-seat-id="1F-W37" transform="translate(800 750)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">37</text></g>
+    <g data-seat-id="1F-W38" transform="translate(710 840)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">38</text></g>
+    <g data-seat-id="1F-W39" transform="translate(620 750)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">39</text></g>
+    <g data-seat-id="1F-W40" transform="translate(525 135)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">40</text></g>
+    <g data-seat-id="1F-W41" transform="translate(645 135)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">41</text></g>
+    <g data-seat-id="1F-W42" transform="translate(765 135)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">42</text></g>
+    <g data-seat-id="1F-W43" transform="translate(525 305)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">43</text></g>
+    <g data-seat-id="1F-W44" transform="translate(645 305)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">44</text></g>
+    <g data-seat-id="1F-W45" transform="translate(765 305)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">45</text></g>
+    <g data-seat-id="1F-W46" transform="translate(1040 154)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">46</text></g>
+    <g data-seat-id="1F-W47" transform="translate(1040 286)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">47</text></g>
+    <g data-seat-id="1F-W48" transform="translate(1040 374)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">48</text></g>
+    <g data-seat-id="1F-W49" transform="translate(1040 506)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">49</text></g>
+    <g data-seat-id="1F-W50" transform="translate(1040 594)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">50</text></g>
+    <g data-seat-id="1F-W51" transform="translate(1040 726)"><circle r="36" fill="#fff" stroke="#c6c1f0" stroke-width="2"/><text class="seat-number" y="10">51</text></g>
+  </g>
+</svg>

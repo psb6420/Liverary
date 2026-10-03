@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { toBlob } from "html-to-image";
 import { Button, Icon, Sheet } from "./UI.jsx";
-import { formatClock, formatDuration } from "../lib/model.js";
+import {
+  formatClock,
+  formatDuration,
+  getSeatDefinition,
+} from "../lib/model.js";
 import logo from "../assets/logo.svg";
 import gomduri from "../assets/gomduri.png";
 
@@ -16,17 +20,22 @@ function downloadFile(blob, name) {
 }
 
 export function QrSheet({ seats, onClose, notify }) {
-  const [seatId, setSeatId] = useState("2F-A04");
+  const [seatId, setSeatId] = useState(() => seats[0]?.id || "");
   const [svg, setSvg] = useState("");
   const [error, setError] = useState("");
-  const seat = seats.find((item) => item.id === seatId);
+  const seat = seats.find((item) => item.id === seatId) || seats[0];
+  const selectedSeatId = seat?.id || "";
   const url = new URL(window.location.pathname, window.location.origin);
-  url.searchParams.set("seat", seatId);
+  url.searchParams.set("seat", selectedSeatId);
   const seatUrl = url.href;
   useEffect(() => {
     let current = true;
     setSvg("");
     setError("");
+    if (!selectedSeatId) {
+      setError("등록된 좌석이 없어요.");
+      return;
+    }
     QRCode.toString(seatUrl, {
       type: "svg",
       margin: 2,
@@ -42,38 +51,44 @@ export function QrSheet({ seats, onClose, notify }) {
     return () => {
       current = false;
     };
-  }, [seatUrl]);
+  }, [seatUrl, selectedSeatId]);
   return (
     <Sheet title="좌석 QR" onClose={onClose}>
       <label className="field-label">
         좌석
         <select
-          value={seatId}
+          value={selectedSeatId}
           onChange={(event) => setSeatId(event.target.value)}
         >
           {seats.map((item) => (
             <option key={item.id} value={item.id}>
-              {item.floor.replace("F", "층")} · {item.label}
+              {item.groupLabel || item.zone} · {item.label}번
             </option>
           ))}
         </select>
       </label>
-      <div className="qr-print-card">
-        <img className="qr-brand" src={logo} alt="Liverary" />
-        <strong>미래도서관 {seat.floor.replace("F", "층")}</strong>
-        <span>{seat.label}</span>
-        {svg ? (
-          <img
-            className="qr-code-image"
-            src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`}
-            alt={`${seat.label} 좌석 이용 QR 코드`}
-            width="220"
-            height="220"
-          />
-        ) : (
-          <p>{error || "QR 준비 중"}</p>
-        )}
-      </div>
+      {seat ? (
+        <div className="qr-print-card">
+          <img className="qr-brand" src={logo} alt="Liverary" />
+          <strong>
+            미래도서관 {seat.floor.replace("F", "층")} · {seat.zone}
+          </strong>
+          <span>{seat.label}</span>
+          {svg ? (
+            <img
+              className="qr-code-image"
+              src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`}
+              alt={`${seat.label} 좌석 이용 QR 코드`}
+              width="220"
+              height="220"
+            />
+          ) : (
+            <p>{error || "QR 준비 중"}</p>
+          )}
+        </div>
+      ) : (
+        <p role="status">{error}</p>
+      )}
       <div className="action-stack">
         <Button
           tone="primary"
@@ -81,7 +96,7 @@ export function QrSheet({ seats, onClose, notify }) {
           onClick={() =>
             downloadFile(
               new Blob([svg], { type: "image/svg+xml" }),
-              `Liverary-${seatId}-QR.svg`,
+              `Liverary-${selectedSeatId}-QR.svg`,
             )
           }
         >
@@ -89,6 +104,7 @@ export function QrSheet({ seats, onClose, notify }) {
           QR 저장
         </Button>
         <Button
+          disabled={!seat}
           onClick={async () => {
             try {
               await navigator.clipboard.writeText(seatUrl);
@@ -107,6 +123,7 @@ export function QrSheet({ seats, onClose, notify }) {
 }
 
 export function ShareSheet({ record, profile, onClose, notify }) {
+  const seat = getSeatDefinition(record.seatId);
   const cardRef = useRef(null);
   const [busy, setBusy] = useState(false);
   const date = new Intl.DateTimeFormat("ko-KR", {
@@ -171,8 +188,8 @@ export function ShareSheet({ record, profile, onClose, notify }) {
         <img className="study-card-mascot" src={gomduri} alt="곰두리" />
         <div className="study-card-bottom">
           <span>
-            미래도서관 {record.seatId.slice(0, 2).replace("F", "층")} ·{" "}
-            {record.seatId.slice(3)}
+            미래도서관 {seat.floor.replace("F", "층")} · {seat.zone} ·{" "}
+            {seat.label}
           </span>
           <strong>오늘도 한 걸음</strong>
         </div>

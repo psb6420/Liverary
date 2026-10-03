@@ -8,7 +8,7 @@ export function Checkin({ seat, app, go, start }) {
   const busy = seat.status !== "free";
   return (
     <>
-      <Heading>{seat.label} 좌석</Heading>
+      <Heading>{seat.label}번 좌석</Heading>
       <section className="checkin-card card">
         <div className="checkin-visual">
           <Badge tone={busy ? "warm" : "purple"}>

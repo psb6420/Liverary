@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="plan-title plan-description">
+  <title id="plan-title">강원대학교 미래도서관 1층 2D 배치도 · ① 카페 목업 구역</title>
+  <desc id="plan-description">강원대학교 도서관의 공식 1층 입체 시설안내도를 참고해 상대적 공간 배치를 단순화한 프로젝트용 도식입니다. ① 카페만 목업 대상으로 강조합니다. 치수와 축척은 없으며, 가구군은 도식화한 것으로 개별 좌석 수나 좌표를 확정하지 않습니다. 북쪽 방향을 나타내는 도면이 아닙니다.</desc>
+  <metadata>
+    Source: https://library.kangwon.ac.kr/assets/images/kw/contents/milae-floor1.jpg
+    Reference page: https://library.kangwon.ac.kr/library-guide/time-and-floors?tabIndex=1&amp;contentIndex=1&amp;floorIndex=1
+    Created: 2026-10-03. Layout: schematic, not to scale. Mockup scope: zone-01-cafe only.
+  </metadata>
+  <defs>
+    <style>
+      text { font-family: 'Malgun Gothic', 'Noto Sans KR', sans-serif; fill: #222638; }
+      .title { font-size: 38px; font-weight: 700; letter-spacing: -1.4px; }
+      .label { font-size: 22px; font-weight: 700; letter-spacing: -.5px; }
+      .small { font-size: 17px; fill: #818594; }
+      .detail { font-size: 16px; fill: #827d99; }
+      .quiet-label { font-size: 20px; font-weight: 600; fill: #7b8091; }
+      .purple { fill: #5650dc; }
+      .number { font-size: 22px; font-weight: 700; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+      .outline { fill: none; stroke: #cbd0dd; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .partition { fill: none; stroke: #c7cbd7; stroke-width: 2; }
+      .muted-furniture { fill: #dfe2eb; stroke: #c7cbd7; stroke-width: 1.5; }
+      .cafe-furniture { fill: #ded9ff; stroke: #aaa0ed; stroke-width: 2; }
+      .cafe-chair { fill: #a79cee; }
+    </style>
+    <clipPath id="floor-clip">
+      <path d="M104 258H1362Q1466 258 1466 362V625Q1466 860 1248 860H104Z"/>
+    </clipPath>
+    <pattern id="terrace-paving" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#f1f4f0"/>
+      <path d="M20 0H0V20" fill="none" stroke="#e4e9e1" stroke-width="1"/>
+    </pattern>
+    <symbol id="cafe-table" viewBox="0 0 76 62">
+      <rect x="10" y="12" width="56" height="38" rx="10" class="cafe-furniture"/>
+      <path d="M25 3H51M25 59H51" fill="none" stroke="#a79cee" stroke-width="7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="cafe-round-table" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="15" class="cafe-furniture"/>
+      <path d="M8 22V38M52 22V38" fill="none" stroke="#a79cee" stroke-width="6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="patio-table" viewBox="0 0 72 72">
+      <circle cx="36" cy="36" r="26" fill="#fff" stroke="#d5dccc" stroke-width="2"/>
+      <path d="m36 10 0 52M10 36h52M18 18l36 36M18 54l36-36" stroke="#e2e7dc" stroke-width="1.5"/>
+      <circle cx="36" cy="36" r="3" fill="#b7c5ad"/>
+    </symbol>
+  </defs>
+
+  <g id="page-background">
+    <rect width="1600" height="1000" fill="#f7f8fc"/>
+    <rect x="40" y="40" width="1520" height="920" rx="30" fill="#fff" stroke="#e9eaf1" stroke-width="2"/>
+  </g>
+  <g id="map-heading">
+    <rect x="88" y="90" width="58" height="58" rx="17" fill="#5650dc"/>
+    <text x="117" y="128" font-size="25" font-weight="700" fill="#fff" style="fill:#fff" text-anchor="middle">1F</text>
+    <text x="166" y="124" class="title">미래도서관</text>
+    <text x="168" y="157" class="small">1층 배치도</text>
+    <rect x="1190" y="94" width="320" height="54" rx="27" fill="#eeedfe"/>
+    <circle cx="1220" cy="121" r="5" fill="#5650dc"/>
+    <text x="1240" y="129" font-size="21" font-weight="700" class="purple">목업 구역 · ① 카페</text>
+    <path d="M88 193H1512" stroke="#e9eaf1" stroke-width="2"/>
+  </g>
+
+  <g id="floor-plan" data-floor-id="1F" data-layout="schematic">
+    <path id="floor-boundary" d="M104 258H1362Q1466 258 1466 362V625Q1466 860 1248 860H104Z" fill="#fafbfe" stroke="#bfc5d4" stroke-width="4"/>
+
+    <g id="terraces-and-landscaping" clip-path="url(#floor-clip)" data-mockup-enabled="false">
+      <rect x="105" y="260" width="439" height="112" fill="url(#terrace-paving)"/>
+      <rect x="105" y="372" width="29" height="425" fill="#e2eddf"/>
+      <rect x="105" y="797" width="458" height="62" fill="url(#terrace-paving)"/>
+      <rect x="145" y="812" width="92" height="27" rx="13" fill="#d4e4cd"/>
+      <rect x="253" y="812" width="105" height="27" rx="13" fill="#d4e4cd"/>
+      <rect x="374" y="812" width="158" height="27" rx="13" fill="#d4e4cd"/>
+      <use href="#patio-table" x="158" y="274" width="70" height="70"/>
+      <use href="#patio-table" x="259" y="274" width="70" height="70"/>
+      <use href="#patio-table" x="360" y="274" width="70" height="70"/>
+      <text x="487" y="321" class="small" text-anchor="middle">테라스</text>
+      <path d="M135 372H545M135 797H563" fill="none" stroke="#cbd7c5" stroke-width="3"/>
+    </g>
+
+    <g id="fixed-interior-partitions" data-mockup-enabled="false">
+      <rect x="586" y="278" width="309" height="202" rx="7" fill="#eceef4" stroke="#c7cbd7" stroke-width="2.5"/>
+      <path d="M674 278V422M784 278V422M586 351H895M586 422H895M626 422V480M716 422V480M813 422V480" class="partition"/>
+      <rect x="586" y="386" width="309" height="45" fill="#eceef4"/>
+      <text x="740" y="414" class="quiet-label" text-anchor="middle">실내 구획</text>
+      <path d="M554 278V345M554 384V474" stroke="#c7cbd7" stroke-width="3"/>
+      <path d="M568 282H582M568 297H582M568 312H582M568 327H582" class="partition"/>
+    </g>
+
+    <g id="zone-01-cafe" data-zone-id="1F-01" data-mockup-enabled="true" data-seat-layout="unconfirmed">
+      <title>① 카페 · Stay by Us · 목업 대상 구역</title>
+      <path id="zone-01-outline" d="M150 388H545V775H150Z" fill="#f2efff" stroke="#8e7ee4" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="182" cy="424" r="20" fill="#5650dc"/>
+      <text x="182" y="424" class="number">1</text>
+      <text x="217" y="425" class="label purple">카페</text>
+      <text x="217" y="450" font-size="16" fill="#827d99" style="fill:#827d99">Stay by Us</text>
+
+      <g id="cafe-counter" data-furniture-layout="schematic">
+        <path d="M174 482H374V508H205V534H174Z" class="cafe-furniture"/>
+        <rect x="306" y="488" width="24" height="12" rx="3" fill="#b3a7ed"/>
+        <rect x="341" y="488" width="24" height="12" rx="3" fill="#b3a7ed"/>
+        <text x="279" y="559" class="detail" text-anchor="middle">카운터 · 테이블</text>
+      </g>
+      <g id="cafe-table-clusters" data-furniture-layout="schematic">
+        <use href="#cafe-round-table" x="163" y="582" width="54" height="54"/>
+        <use href="#cafe-round-table" x="163" y="682" width="54" height="54"/>
+        <rect x="252" y="590" width="52" height="148" rx="10" class="cafe-furniture"/>
+        <path d="M240 611V633M240 651V673M240 691V713M316 611V633M316 651V673M316 691V713" fill="none" stroke="#a79cee" stroke-width="8" stroke-linecap="round"/>
+        <text x="278" y="761" class="detail" text-anchor="middle">공용 테이블</text>
+        <use href="#cafe-table" x="422" y="476" width="84" height="68"/>
+        <use href="#cafe-table" x="422" y="551" width="84" height="68"/>
+      </g>
+      <g id="source-empty-area" data-seat-enabled="false">
+        <rect x="380" y="642" width="145" height="112" rx="6" fill="#e7e8f0" stroke="#cdd0dd" stroke-width="2"/>
+        <path d="M390 744 515 652M390 718l91-66M423 744l92-67" stroke="#d7d9e4" stroke-width="1.5"/>
+        <rect x="388" y="683" width="129" height="31" rx="4" fill="#e7e8f0"/>
+        <text x="452" y="704" class="detail" text-anchor="middle">용도 미확인</text>
+      </g>
+    </g>
+
+    <g id="zone-02-media" data-zone-id="1F-02" data-mockup-enabled="false">
+      <title>② 링크미디어 스페이스 · 참고 공간</title>
+      <rect x="930" y="278" width="444" height="161" rx="10" fill="#f0f2f7" stroke="#c7cbd7" stroke-width="2"/>
+      <path d="M1248 278V439M1310 278V439M1248 360H1374" class="partition"/>
+      <rect x="958" y="304" width="265" height="17" rx="3" fill="#d4daeb"/>
+      <rect x="956" y="395" width="37" height="21" rx="4" class="muted-furniture"/>
+      <rect x="1030" y="395" width="37" height="21" rx="4" class="muted-furniture"/>
+      <rect x="1104" y="395" width="37" height="21" rx="4" class="muted-furniture"/>
+      <circle cx="958" cy="357" r="18" fill="#9ba2b5"/>
+      <text x="958" y="357" class="number" style="font-size:20px">2</text>
+      <text x="991" y="365" font-size="21" font-weight="600" fill="#7b8091" style="fill:#7b8091">링크미디어 스페이스</text>
+    </g>
+
+    <g id="zone-03-browsing-valley" data-zone-id="1F-03" data-mockup-enabled="false">
+      <title>③ 브라우징 밸리 · 참고 공간</title>
+      <rect x="938" y="478" width="425" height="186" rx="9" fill="#f1f0ed" stroke="#cdcbd2" stroke-width="2"/>
+      <path d="M960 490V650M995 490V650M1030 490V650M1065 490V650M1100 490V650M1135 490V650M1170 490V650M1205 490V650M1240 490V650M1275 490V650M1310 490V650" fill="none" stroke="#e0ddd7" stroke-width="1.5"/>
+      <rect x="966" y="505" width="113" height="21" rx="6" class="muted-furniture"/>
+      <rect x="1223" y="505" width="113" height="21" rx="6" class="muted-furniture"/>
+      <rect x="982" y="615" width="89" height="22" rx="6" class="muted-furniture"/>
+      <rect x="1240" y="615" width="89" height="22" rx="6" class="muted-furniture"/>
+      <rect x="993" y="542" width="313" height="56" rx="9" fill="#f1f0ed"/>
+      <circle cx="1020" cy="571" r="18" fill="#9ba2b5"/>
+      <text x="1020" y="571" class="number" style="font-size:20px">3</text>
+      <text x="1052" y="580" class="quiet-label">브라우징 밸리</text>
+    </g>
+
+    <g id="zone-04-we-place" data-zone-id="1F-04" data-mockup-enabled="false">
+      <title>④ We플레이스 · 참고 공간</title>
+      <path d="M1125 697H1425Q1403 797 1320 825H1125Z" fill="#f2f3f8" stroke="#c7cbd7" stroke-width="2"/>
+      <rect x="1154" y="720" width="87" height="18" rx="5" class="muted-furniture"/>
+      <path d="M1390 724Q1378 773 1334 792" fill="none" stroke="#d9ddea" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="1149" cy="776" r="18" fill="#9ba2b5"/>
+      <text x="1149" y="776" class="number" style="font-size:20px">4</text>
+      <text x="1181" y="785" class="quiet-label">We플레이스</text>
+    </g>
+
+    <g id="circulation" data-seat-enabled="false">
+      <text x="744" y="621" font-size="25" font-weight="600" fill="#a1a6b7" style="fill:#a1a6b7" text-anchor="middle">로비 · 통로</text>
+      <path d="M661 792h14M697 792h14M733 792h14M769 792h14M805 792h14" fill="none" stroke="#c5cad7" stroke-width="7" stroke-linecap="round"/>
+      <path d="M739 846V817m-8 8 8-8 8 8" fill="none" stroke="#9ba2b5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="739" y="889" font-size="18" fill="#818594" style="fill:#818594" text-anchor="middle">출입 동선</text>
+    </g>
+    <g id="facade-lines" aria-hidden="true">
+      <path d="M111 384V786M1137 849H1248Q1455 849 1455 624V391" fill="none" stroke="#d1d8e9" stroke-width="5"/>
+      <path d="M122 399V779" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+  </g>
+
+  <g id="plan-footer">
+    <rect x="90" y="918" width="14" height="14" rx="4" fill="#ded9ff" stroke="#8e7ee4" stroke-width="1.5"/>
+    <text x="116" y="931" font-size="17" font-weight="600" class="purple">① 목업 범위</text>
+    <rect x="272" y="918" width="14" height="14" rx="4" fill="#eceef4" stroke="#c7cbd7" stroke-width="1.5"/>
+    <text x="298" y="931" class="small">②–④ 참고 공간</text>
+    <text x="1510" y="931" class="small" text-anchor="end">공식 입체 안내도 기반 재구성 · 축척 없음</text>
+  </g>
+</svg>

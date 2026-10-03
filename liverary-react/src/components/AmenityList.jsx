@@ -12,7 +12,7 @@ export default function AmenityList({ seat }) {
           </span>
         ))
       ) : (
-        <span>일반 자유석</span>
+        <span>{seat.groupLabel || "일반 자유석"}</span>
       )}
     </div>
   );

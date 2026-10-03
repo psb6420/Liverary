@@ -9,7 +9,8 @@ import {
 import { FLOOR_LABEL } from "./lib/viewHelpers.js";
 import { Badge, Button, Icon, Sheet } from "./components/UI.jsx";
 import { QrSheet, ShareSheet } from "./components/Tools.jsx";
-import { EntryForm, ProfileForm } from "./components/Forms.jsx";
+import { ProfileForm } from "./components/Forms.jsx";
+import QrScanner from "./components/QrScanner.jsx";
 import AmenityList from "./components/AmenityList.jsx";
 import Home from "./pages/Home.jsx";
 import Seats from "./pages/Seats.jsx";
@@ -28,14 +29,14 @@ const MENU = [
   { id: "records", label: "기록" },
   { id: "my", label: "MY" },
 ];
+const ACTIVE_SEAT_IDS = new Set(BASE_SEATS.map((seat) => seat.id));
 
 function readRoute() {
   const hash = window.location.hash.slice(1);
   if (hash.startsWith("checkin/")) {
     try {
       const seatId = decodeURIComponent(hash.slice(8));
-      if (BASE_SEATS.some((seat) => seat.id === seatId))
-        return { page: "checkin", seatId };
+      if (ACTIVE_SEAT_IDS.has(seatId)) return { page: "checkin", seatId };
     } catch {
       /* Invalid QR links return home. */
     }
@@ -43,8 +44,7 @@ function readRoute() {
   if ([...MENU.map((item) => item.id), "session", "summary"].includes(hash))
     return { page: hash };
   const seatId = new URLSearchParams(window.location.search).get("seat");
-  if (!hash && BASE_SEATS.some((seat) => seat.id === seatId))
-    return { page: "checkin", seatId };
+  if (!hash && ACTIVE_SEAT_IDS.has(seatId)) return { page: "checkin", seatId };
   return { page: "home" };
 }
 
@@ -105,9 +105,9 @@ export default function App() {
   const props = { app, go, open: setSheet };
   const title =
     sheet?.type === "seat"
-      ? `${selectedSeat.label} 좌석`
+      ? `${selectedSeat.label}번 좌석`
       : sheet?.type === "entry"
-        ? "좌석 번호 입력"
+        ? "좌석 QR"
         : sheet?.type === "profile"
           ? "내 정보"
           : sheet?.type === "end"
@@ -214,7 +214,7 @@ export default function App() {
                       tone="primary"
                       onClick={() => go("checkin", selectedSeat.id)}
                     >
-                      QR 이용 시작
+                      이용하기
                     </Button>
                   )}
                   {selectedSeat.status === "mine" && (
@@ -227,12 +227,7 @@ export default function App() {
               </>
             )}
             {sheet.type === "entry" && (
-              <EntryForm
-                app={app}
-                go={go}
-                close={() => setSheet(null)}
-                notify={notify}
-              />
+              <QrScanner app={app} go={go} notify={notify} />
             )}
             {sheet.type === "profile" && (
               <ProfileForm
